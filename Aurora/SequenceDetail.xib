@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="sequenceDetail" id="iN0-l3-epB" customClass="SequenceDetailView" customModule="Aurora" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="290" height="172"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eCS-LZ-ocH">
+                    <rect key="frame" x="0.0" y="52.5" width="290" height="119.5"/>
+                    <color key="backgroundColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XOE-Ek-tfA">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="16"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="kPp-yF-ckv"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="VZZ-gS-y7t"/>
+                    </connections>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igx-vW-5yW">
+                    <rect key="frame" x="16" y="0.0" width="258" height="36.5"/>
+                    <string key="text">Delay: 5 seconds
+Fade: No</string>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                    <color key="textColor" red="0.51784205439999997" green="0.58159953360000005" blue="0.58617168659999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="eCS-LZ-ocH" firstAttribute="top" secondItem="Igx-vW-5yW" secondAttribute="bottom" constant="16" id="5CA-F1-iHJ"/>
+                <constraint firstAttribute="trailing" secondItem="Igx-vW-5yW" secondAttribute="trailing" constant="16" id="EOF-56-crZ"/>
+                <constraint firstAttribute="trailing" secondItem="eCS-LZ-ocH" secondAttribute="trailing" id="YUQ-r3-LSs"/>
+                <constraint firstItem="Igx-vW-5yW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Z2j-EU-rxd"/>
+                <constraint firstAttribute="bottom" secondItem="eCS-LZ-ocH" secondAttribute="bottom" id="ZbB-jq-laM"/>
+                <constraint firstItem="eCS-LZ-ocH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oMd-YX-B5t"/>
+                <constraint firstItem="Igx-vW-5yW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vIB-rn-qgz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="detailsLabel" destination="Igx-vW-5yW" id="kC1-eb-1NF"/>
+                <outlet property="itemsCollectionView" destination="eCS-LZ-ocH" id="rmj-4j-C7S"/>
+            </connections>
+            <point key="canvasLocation" x="-25" y="-2"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WeS-7j-KD5">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Container View Controller-->
+        <scene sceneID="V7x-qd-szS">
+            <objects>
+                <viewController storyboardIdentifier="Container" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WeS-7j-KD5" customClass="ContainerViewController" customModule="Aurora" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="32m-zM-EST"/>
+                        <viewControllerLayoutGuide type="bottom" id="LD2-dD-x5k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="isp-1v-XbR">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="373"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="365" height="373"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jW8-29-X0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1" y="169"/>
+        </scene>
+        <!--Sequence Page View Controller-->
+        <scene sceneID="EL8-fM-KZS">
+            <objects>
+                <viewController storyboardIdentifier="SequencePage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JEy-pg-Wbp" customClass="SequencePageViewController" customModule="Aurora" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6K8-P6-p4h"/>
+                        <viewControllerLayoutGuide type="bottom" id="meW-fp-1n8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f45-OA-8t5">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="373"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kC4-Rd-FIM" customClass="PropertyButton" customModule="Aurora" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="182" height="37"/>
+                                <color key="backgroundColor" red="0.18998533487319946" green="0.35768887400627136" blue="0.43821841478347778" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="R3K-n6-8rw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <state key="normal" title="Fade Colors: No">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="keyText" value="Fade Colors"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="valueText" value="No"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="fadeButtonPressed:" destination="JEy-pg-Wbp" eventType="touchUpInside" id="eak-DL-OTO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0O-jI-yFv" customClass="PropertyButton" customModule="Aurora" customModuleProvider="target">
+                                <rect key="frame" x="183" y="0.0" width="182" height="37"/>
+                                <color key="backgroundColor" red="0.18998533487319946" green="0.35768887400627136" blue="0.43821841478347778" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="xjl-q2-A7v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <state key="normal" title="Delay: 0.25 sec">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="delayButtonPressed:" destination="JEy-pg-Wbp" eventType="touchUpInside" id="yzW-kP-HE8"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CU4-Ue-xFu" customClass="DragAndDropCollectionView" customModule="Aurora" customModuleProvider="target">
+                                <rect key="frame" x="16" y="213" width="333" height="144"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gvs-lr-M5S">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZSV-mI-Q8e">
+                                        <rect key="frame" x="10" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OOi-pk-QHL" customClass="DragAndDropCollectionView" customModule="Aurora" customModuleProvider="target">
+                                <rect key="frame" x="16" y="53" width="333" height="144"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="75E-nn-61n">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LU4-Vj-T3X">
+                                        <rect key="frame" x="10" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="CU4-Ue-xFu" firstAttribute="height" secondItem="OOi-pk-QHL" secondAttribute="height" id="0CW-4z-Iqe"/>
+                            <constraint firstItem="kC4-Rd-FIM" firstAttribute="leading" secondItem="f45-OA-8t5" secondAttribute="leading" id="0bT-Qz-m6N"/>
+                            <constraint firstAttribute="trailing" secondItem="G0O-jI-yFv" secondAttribute="trailing" id="3sn-XT-fFm"/>
+                            <constraint firstItem="OOi-pk-QHL" firstAttribute="top" secondItem="G0O-jI-yFv" secondAttribute="bottom" constant="16" id="8ok-ZQ-Q8V"/>
+                            <constraint firstAttribute="trailing" secondItem="OOi-pk-QHL" secondAttribute="trailing" constant="16" id="9O7-Il-eUY"/>
+                            <constraint firstAttribute="trailing" secondItem="CU4-Ue-xFu" secondAttribute="trailing" constant="16" id="Fmk-ti-4Pv"/>
+                            <constraint firstItem="CU4-Ue-xFu" firstAttribute="leading" secondItem="f45-OA-8t5" secondAttribute="leading" constant="16" id="JgI-vI-6V8"/>
+                            <constraint firstItem="G0O-jI-yFv" firstAttribute="leading" secondItem="kC4-Rd-FIM" secondAttribute="trailing" constant="1" id="L0M-yl-vhA"/>
+                            <constraint firstItem="kC4-Rd-FIM" firstAttribute="top" secondItem="6K8-P6-p4h" secondAttribute="bottom" id="Mh4-M6-S5l"/>
+                            <constraint firstItem="G0O-jI-yFv" firstAttribute="height" secondItem="kC4-Rd-FIM" secondAttribute="height" id="NAc-Bc-9PK"/>
+                            <constraint firstItem="G0O-jI-yFv" firstAttribute="top" secondItem="6K8-P6-p4h" secondAttribute="bottom" id="OP2-tV-iCR"/>
+                            <constraint firstItem="CU4-Ue-xFu" firstAttribute="top" secondItem="OOi-pk-QHL" secondAttribute="bottom" constant="16" id="SM7-VL-hjo"/>
+                            <constraint firstItem="OOi-pk-QHL" firstAttribute="leading" secondItem="f45-OA-8t5" secondAttribute="leading" constant="16" id="n1M-n9-5eZ"/>
+                            <constraint firstItem="meW-fp-1n8" firstAttribute="top" secondItem="CU4-Ue-xFu" secondAttribute="bottom" constant="16" id="qIj-2p-77i"/>
+                            <constraint firstItem="G0O-jI-yFv" firstAttribute="width" secondItem="kC4-Rd-FIM" secondAttribute="width" id="u4p-yr-8B3"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="365" height="373"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="delayButton" destination="G0O-jI-yFv" id="1xo-7S-teb"/>
+                        <outlet property="fadeButton" destination="kC4-Rd-FIM" id="NFi-hr-Mlk"/>
+                        <outlet property="patternCollectionView" destination="OOi-pk-QHL" id="fh2-36-gqH"/>
+                        <outlet property="sourceCollectionView" destination="CU4-Ue-xFu" id="EAu-k7-ilg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JkE-tb-8PH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1941.5999999999999" y="168.6656671664168"/>
+        </scene>
+        <!--Hue Page View Controller-->
+        <scene sceneID="DhU-oL-6nS">
+            <objects>
+                <viewController storyboardIdentifier="ColorPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3rL-lC-67C" customClass="HuePageViewController" customModule="Aurora" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="adN-xo-rYW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ghk-3t-U2F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y8Q-uo-el2" customClass="View">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="373"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Oc-P5-B1c" customClass="HRColorPickerView">
+                                <rect key="frame" x="0.0" y="0.0" width="365" height="373"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fw3-Nq-wWA" customClass="HRColorInfoView">
+                                        <rect key="frame" x="8" y="0.0" width="66" height="84"/>
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="MBJ-ed-iH3"/>
+                                            <constraint firstAttribute="height" constant="84" id="ahU-cY-gG6"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUN-Ro-Sz7" customClass="HRColorMapView">
+                                        <rect key="frame" x="0.0" y="100" width="365" height="273"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79v-vn-Htv" customClass="HRBrightnessSlider">
+                                        <rect key="frame" x="90" y="37" width="259" height="11"/>
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.61911003490000005" blue="0.62945342689999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="11" id="o9C-oK-jj0"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="brightnessLowerLimit">
+                                                <real key="value" value="0.20000000000000001"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="MUN-Ro-Sz7" secondAttribute="trailing" id="6Vj-wG-r1T"/>
+                                    <constraint firstItem="Fw3-Nq-wWA" firstAttribute="leading" secondItem="4Oc-P5-B1c" secondAttribute="leading" constant="8" id="EQB-S3-eL2"/>
+                                    <constraint firstItem="Fw3-Nq-wWA" firstAttribute="top" secondItem="4Oc-P5-B1c" secondAttribute="top" id="NN9-AM-V9W"/>
+                                    <constraint firstAttribute="trailing" secondItem="MUN-Ro-Sz7" secondAttribute="trailing" id="Ozz-uE-c5c"/>
+                                    <constraint firstItem="MUN-Ro-Sz7" firstAttribute="top" secondItem="Fw3-Nq-wWA" secondAttribute="bottom" constant="16" id="QhD-d4-u5V"/>
+                                    <constraint firstAttribute="bottom" secondItem="MUN-Ro-Sz7" secondAttribute="bottom" id="TGS-Jm-cII"/>
+                                    <constraint firstAttribute="bottom" secondItem="MUN-Ro-Sz7" secondAttribute="bottom" id="U6m-0R-QlA"/>
+                                    <constraint firstAttribute="trailing" secondItem="79v-vn-Htv" secondAttribute="trailing" constant="16" id="dDC-2j-053"/>
+                                    <constraint firstItem="MUN-Ro-Sz7" firstAttribute="leading" secondItem="4Oc-P5-B1c" secondAttribute="leading" id="eg3-ws-3pe"/>
+                                    <constraint firstItem="79v-vn-Htv" firstAttribute="centerY" secondItem="Fw3-Nq-wWA" secondAttribute="centerY" id="rls-Ml-gYz"/>
+                                    <constraint firstItem="MUN-Ro-Sz7" firstAttribute="leading" secondItem="4Oc-P5-B1c" secondAttribute="leading" id="t9W-wb-auB"/>
+                                    <constraint firstItem="79v-vn-Htv" firstAttribute="leading" secondItem="Fw3-Nq-wWA" secondAttribute="trailing" constant="16" id="wPP-Oq-8fP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.1911550909280777" green="0.6378670334815979" blue="0.26147949695587158" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="brightnessSlider" destination="79v-vn-Htv" id="a2T-vD-6qo"/>
+                                    <outlet property="colorInfoView" destination="Fw3-Nq-wWA" id="JX3-2k-N79"/>
+                                    <outlet property="colorMapView" destination="MUN-Ro-Sz7" id="OA9-ep-OBE"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ghk-3t-U2F" firstAttribute="top" secondItem="4Oc-P5-B1c" secondAttribute="bottom" id="Psb-ht-pyo"/>
+                            <constraint firstItem="4Oc-P5-B1c" firstAttribute="leading" secondItem="y8Q-uo-el2" secondAttribute="leading" id="Ze5-7Z-3ds"/>
+                            <constraint firstItem="4Oc-P5-B1c" firstAttribute="top" secondItem="y8Q-uo-el2" secondAttribute="top" id="sTB-SK-56a"/>
+                            <constraint firstAttribute="trailing" secondItem="4Oc-P5-B1c" secondAttribute="trailing" id="tUt-qv-txJ"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="365" height="373"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="colorMapView" destination="MUN-Ro-Sz7" id="8dA-ft-0rr"/>
+                        <outlet property="colorPickerView" destination="4Oc-P5-B1c" id="RSb-kI-bq1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6x-AW-U20" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="668" y="169"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="Q7s-9M-g3l">
+            <objects>
+                <viewController storyboardIdentifier="RGBPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="es9-hv-FGU" customClass="RGBPageViewController" customModule="Aurora" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7MZ-vm-Jcv"/>
+                        <viewControllerLayoutGuide type="bottom" id="9JB-CS-UUp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UR7-vF-4st">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="373"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-kC-9du" customClass="HRBrightnessSlider">
+                                <rect key="frame" x="24" y="215" width="317" height="11"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.61911003490000005" blue="0.62945342689999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="OQy-zC-iGb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="brightnessLowerLimit">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.23018704354763031" green="0.77713233232498169" blue="0.3158949613571167" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQc-c9-bdM" customClass="HRBrightnessSlider">
+                                <rect key="frame" x="24" y="134" width="317" height="11"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.61911003490000005" blue="0.62945342689999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="nvm-e1-P4m"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="brightnessLowerLimit">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pH3-Ca-ouU" customClass="HRBrightnessSlider">
+                                <rect key="frame" x="24" y="296" width="317" height="11"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.61911003490000005" blue="0.62945342689999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="Ew1-P4-fGT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="brightnessLowerLimit">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.25005361437797546" green="0.30566063523292542" blue="0.58369332551956177" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGD-pe-EnT" customClass="HRColorInfoView">
+                                <rect key="frame" x="23.5" y="0.0" width="317" height="84"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="uTL-dZ-Fgn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="OGD-pe-EnT" firstAttribute="centerX" secondItem="UR7-vF-4st" secondAttribute="centerX" id="1Sx-Wr-veS"/>
+                            <constraint firstItem="uX3-kC-9du" firstAttribute="centerX" secondItem="zQc-c9-bdM" secondAttribute="centerX" id="Ao6-h9-aMR"/>
+                            <constraint firstItem="OGD-pe-EnT" firstAttribute="top" secondItem="7MZ-vm-Jcv" secondAttribute="bottom" id="Kz2-ha-5Pt"/>
+                            <constraint firstItem="uX3-kC-9du" firstAttribute="leading" secondItem="UR7-vF-4st" secondAttribute="leading" constant="24" id="P8d-SL-Ahh"/>
+                            <constraint firstItem="pH3-Ca-ouU" firstAttribute="centerX" secondItem="zQc-c9-bdM" secondAttribute="centerX" id="QTj-Kp-frT"/>
+                            <constraint firstItem="zQc-c9-bdM" firstAttribute="width" secondItem="OGD-pe-EnT" secondAttribute="width" id="Y4S-ce-2rz"/>
+                            <constraint firstItem="pH3-Ca-ouU" firstAttribute="width" secondItem="zQc-c9-bdM" secondAttribute="width" id="aPO-Yu-TJP"/>
+                            <constraint firstItem="uX3-kC-9du" firstAttribute="top" secondItem="zQc-c9-bdM" secondAttribute="bottom" constant="70" id="bcm-8y-oeP"/>
+                            <constraint firstAttribute="trailing" secondItem="uX3-kC-9du" secondAttribute="trailing" constant="24" id="d5W-qa-aBf"/>
+                            <constraint firstItem="uX3-kC-9du" firstAttribute="width" secondItem="zQc-c9-bdM" secondAttribute="width" id="ntC-xZ-u3o"/>
+                            <constraint firstItem="pH3-Ca-ouU" firstAttribute="top" secondItem="uX3-kC-9du" secondAttribute="bottom" constant="70" id="tmW-xL-02Q"/>
+                            <constraint firstItem="zQc-c9-bdM" firstAttribute="top" secondItem="OGD-pe-EnT" secondAttribute="bottom" constant="50" id="uAx-mn-UAv"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="365" height="373"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="blueBrightnessSlider" destination="pH3-Ca-ouU" id="ray-i6-X2d"/>
+                        <outlet property="colorInfoView" destination="OGD-pe-EnT" id="0EG-RQ-eXj"/>
+                        <outlet property="greenBrightnessSlider" destination="uX3-kC-9du" id="S5L-DT-wzN"/>
+                        <outlet property="redBrightnessSlider" destination="zQc-c9-bdM" id="NkS-TJ-AGZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V8K-c1-J4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312.8" y="168.6656671664168"/>
+        </scene>
+    </scenes>
+</document>

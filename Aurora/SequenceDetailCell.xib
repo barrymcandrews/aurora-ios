@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="subPatternCell" id="IR8-k1-Ohq" customClass="PatternCell" customModule="Aurora" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ri-light-bulb" translatesAutoresizingMaskIntoConstraints="NO" id="AF6-Ii-jJM">
+                        <rect key="frame" x="9" y="9" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="Jjn-AZ-GkZ"/>
+                            <constraint firstAttribute="width" constant="32" id="klj-oT-Hx9"/>
+                        </constraints>
+                    </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUn-Aw-msh">
+                        <rect key="frame" x="9" y="10" width="32" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="H45-DH-FdK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.1334631741" green="0.1823148429" blue="0.25190103050000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="oUn-Aw-msh" firstAttribute="centerX" secondItem="IR8-k1-Ohq" secondAttribute="centerX" id="25S-xT-o74"/>
+                <constraint firstItem="AF6-Ii-jJM" firstAttribute="centerX" secondItem="IR8-k1-Ohq" secondAttribute="centerX" id="Hkd-Ei-Uph"/>
+                <constraint firstItem="AF6-Ii-jJM" firstAttribute="centerY" secondItem="IR8-k1-Ohq" secondAttribute="centerY" id="LoJ-Vh-JD0"/>
+                <constraint firstItem="oUn-Aw-msh" firstAttribute="top" secondItem="IR8-k1-Ohq" secondAttribute="top" constant="10" id="hvc-Lb-BNh"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <integer key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="imageView" destination="AF6-Ii-jJM" id="bad-Di-gMu"/>
+                <outlet property="titleLabel" destination="oUn-Aw-msh" id="7ze-vv-xaM"/>
+            </connections>
+            <point key="canvasLocation" x="235" y="-2"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ri-light-bulb" width="32" height="32"/>
+    </resources>
+</document>
