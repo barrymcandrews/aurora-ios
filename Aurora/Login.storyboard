@@ -143,7 +143,7 @@
                         <outlet property="portTextField" destination="WcY-Sc-hFp" id="J8c-5c-mgz"/>
                         <outlet property="subtitleLabel" destination="SFo-3x-9HB" id="vHM-mT-Hrx"/>
                         <outlet property="titleDistanceConstraint" destination="i0E-rN-Tsg" id="2Oe-hd-iBK"/>
-                        <segue destination="zFd-Dd-s97" kind="show" identifier="showMain" action="showDetailViewController:sender:" id="raU-Ww-4R5"/>
+                        <segue destination="zFd-Dd-s97" kind="presentation" identifier="showMain" id="raU-Ww-4R5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

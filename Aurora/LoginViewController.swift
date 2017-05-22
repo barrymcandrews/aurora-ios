@@ -9,6 +9,7 @@
 import UIKit
 import AuroraCore
 import Alamofire
+import Hero
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -19,16 +20,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var connectButton: UIButton!
     var request: Alamofire.Request?
+    let keyboardHideGroup = DispatchGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+            
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
 
         portTextField.inputAccessoryView = UIToolbar()
         addressTextField.delegate = self
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +54,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func connectButtonPressed(_ sender: Any) {
         if (DEBUG) { self.performSegue(withIdentifier: "showMain", sender: self) }
-       
+        
         request?.suspend()
         
         let port = (portTextField.text! == "" || Int(portTextField.text!) == nil) ? "5000" : portTextField.text!
@@ -71,7 +77,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 Request.hostname = self.addressTextField.text!
                 Request.port = port
                 WatchSessionManager.shared.updateApplicationContext()
-                self.performSegue(withIdentifier: "showMain", sender: self)
+                self.dismissKeyboardAsync() {
+                    self.performSegue(withIdentifier: "showMain", sender: self)
+                }
             }
             self.addressTextField.isEnabled = true
             self.portTextField.isEnabled = true
@@ -82,6 +90,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.subtitleLabel.text = "Enter the server information below."
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination.heroModalAnimationType = .selectBy(presenting: .slide(direction: .left), dismissing: .slide(direction: .right))
+    }
     
     // MARK: - Text Field Keyboard
     
@@ -97,10 +109,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillHide(_ notification: Notification) {
+        keyboardHideGroup.enter()
         UIView.animate(withDuration: 0.3, animations: {() -> Void in
             self.bottomDistanceConstraint.constant = 0
             self.view.layoutIfNeeded()
-        })
+        }) { finished in
+            self.keyboardHideGroup.leave()
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -111,5 +126,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func dismissKeyboard() {
         addressTextField.resignFirstResponder()
         portTextField.resignFirstResponder()
+    }
+    
+    func dismissKeyboardAsync(completion: @escaping (() -> Void)) {
+        addressTextField.resignFirstResponder()
+        portTextField.resignFirstResponder()
+        keyboardHideGroup.notify(queue: DispatchQueue.main, execute: completion)
     }
 }
