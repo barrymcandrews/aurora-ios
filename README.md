@@ -19,9 +19,9 @@ To use and contribute to this project clone it directly from this repository:
 
 ```
 #HTTP
-$ git clone https://github.com/theAlexPatin/MMiOS.git
+$ git clone https://github.com/barrymcandrews/aurora-ios.git
 #SSH
-$ git clone git@github.com:theAlexPatin/MMiOS.git
+$ git clone git@github.com:barrymcandrews/aurora-ios.git
 ```
 ####Dependencies
 
