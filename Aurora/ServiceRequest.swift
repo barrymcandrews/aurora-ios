@@ -8,45 +8,45 @@
 
 import UIKit
 
-extension PropertyKey {
+public extension PropertyKey {
     static var service = "service"
     static var start = "start"
 }
 
-enum ServiceType: String {
+public enum ServiceType: String {
     case StaticLightService = "static_light"
     case LightShowService = "light_show"
 }
 
-class ServiceRequest: Request {
-    var service: ServiceType
-    var start: Bool = true
-    override var body: [String: Any] {
+public class ServiceRequest: Request {
+    public var service: ServiceType
+    public var start: Bool = true
+    override public var body: [String: Any] {
         get {
             return ["status": (start ? "started" : "stopped")]
         }
         set(new){ fatalError("Set body through the service and start properties.") }
     }
-    override var endpoint: String { get { return "/api/v1/services/" + service.rawValue } }
+    override public var endpoint: String { get { return "/api/v1/services/" + service.rawValue } }
     
-    init(name: String, service: ServiceType) {
+    public init(name: String, service: ServiceType) {
         self.service = service
         super.init(name: name, image: RequestImage.RequestImageMusic)
     }
     
-    required init(copyFrom: Request) {
+    required public init(copyFrom: Request) {
         let old = copyFrom as! ServiceRequest
         self.service = old.service
         super.init(copyFrom: copyFrom)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         service = ServiceType(rawValue: aDecoder.decodeObject(forKey: PropertyKey.service) as! String)!
         start = aDecoder.decodeBool(forKey: PropertyKey.start)
         super.init(coder: aDecoder)
     }
     
-    override func encode(with aCoder: NSCoder) {
+    override public func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
         aCoder.encode(service.rawValue, forKey: PropertyKey.service)
         aCoder.encode(start, forKey: PropertyKey.start)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 
 class ServiceDetailView: UIView, DetailView {
     var subtitle: String = "Spotify Mode"

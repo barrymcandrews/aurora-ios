@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 
 protocol DismissalDelegate {
     func modalDismissed()

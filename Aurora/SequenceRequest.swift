@@ -16,23 +16,23 @@ extension PropertyKey {
     static var isParsed = "isParsed"
 }
 
-class SequenceRequest: Request {
-    override var isEditable: Bool { get{ return !isParsed } }
-    var sequence: [Request]
-    var isFade: Bool
-    var delay: Double
-    var repeats: Int
-    var isParsed: Bool
+public class SequenceRequest: Request {
+    override public var isEditable: Bool { get{ return !isParsed } }
+    public var sequence: [Request]
+    public var isFade: Bool
+    public var delay: Double
+    public var repeats: Int
+    public var isParsed: Bool
     
     
-    override var body: [String : Any] {
+    override public var body: [String : Any] {
         get {
             return SequenceRequest.sequenceWithItems(sequence, fade: isFade, repeats: repeats, delay: delay)
         }
         set(newBody) { fatalError("Set body through the sequence property.") }
     }
     
-    init(name: String, delay: Double, fade: Bool, repeats: Int, items: [Request], parsed: Bool = false) {
+    public init(name: String, delay: Double, fade: Bool, repeats: Int, items: [Request], parsed: Bool = false) {
         self.sequence = items
         self.isFade = fade
         self.delay = delay
@@ -41,7 +41,7 @@ class SequenceRequest: Request {
         super.init(name: name, image: RequestImage.RequestImageSequence)
     }
     
-    required init(copyFrom: Request) {
+    required public init(copyFrom: Request) {
         let old = copyFrom as! SequenceRequest
         self.sequence = old.sequence
         self.isFade = old.isFade
@@ -51,7 +51,7 @@ class SequenceRequest: Request {
         super.init(copyFrom: copyFrom)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         sequence = aDecoder.decodeObject(forKey: PropertyKey.sequence) as! [Request]
         isFade = aDecoder.decodeBool(forKey: PropertyKey.isFade)
         delay = aDecoder.decodeDouble(forKey: PropertyKey.delay)
@@ -60,7 +60,7 @@ class SequenceRequest: Request {
         super.init(coder: aDecoder)
     }
     
-    convenience init(name: String, dict: [String: Any]) {
+    public convenience init(name: String, dict: [String: Any]) {
         let fade = (dict["type"] as? String == "fade")
         var items: [Request] = []
         
@@ -80,7 +80,7 @@ class SequenceRequest: Request {
         self.init(name: name, delay: delay, fade: fade, repeats: repeats, items: items, parsed: true)
     }
     
-    override func encode(with aCoder: NSCoder) {
+    override public func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
         aCoder.encode(sequence, forKey: PropertyKey.sequence)
         aCoder.encode(isFade, forKey: PropertyKey.isFade)
@@ -89,7 +89,7 @@ class SequenceRequest: Request {
         aCoder.encode(isParsed, forKey: PropertyKey.isParsed)
     }
     
-    static func sequenceWithItems(_ items: [Request], fade: Bool, repeats: Int, delay: Double) -> [String: Any] {
+    public static func sequenceWithItems(_ items: [Request], fade: Bool, repeats: Int, delay: Double) -> [String: Any] {
         var contents: [[String: Any]] = []
         for request in items {
             if (fade) {

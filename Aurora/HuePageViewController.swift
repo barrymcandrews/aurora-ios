@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 import ColorPicker
 
 protocol HuePageDelegate {

@@ -8,6 +8,7 @@
 let DEBUG = false
 
 import UIKit
+import AuroraCore
 import Alamofire
 
 @UIApplicationMain
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         print("Loaded?: \(RequestContainer.loadRequests())")
+        
+        WatchSessionManager.shared.startSession()
+        
         return true
     }
 

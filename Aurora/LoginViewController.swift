@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 import Alamofire
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
@@ -69,6 +70,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 Request.hostname = self.addressTextField.text!
                 Request.port = port
+                WatchSessionManager.shared.updateApplicationContext()
                 self.performSegue(withIdentifier: "showMain", sender: self)
             }
             self.addressTextField.isEnabled = true

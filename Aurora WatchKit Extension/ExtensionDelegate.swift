@@ -8,6 +8,7 @@
 
 var DEBUG = false
 
+import AuroraCore
 import WatchKit
 import WatchConnectivity
 
@@ -15,6 +16,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        
+        Request.hostname = UserDefaults.standard.string(forKey: "lastHostname") ?? "localhost"
+        Request.port = UserDefaults.standard.string(forKey: "lastPort") ?? "5000"
+        WatchSessionManager.shared.startSession()
     }
 
     func applicationDidBecomeActive() {

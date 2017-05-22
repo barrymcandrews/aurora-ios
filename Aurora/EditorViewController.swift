@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 
 class EditorViewController: ModalViewController, UITextFieldDelegate, HuePageDelegate {
     @IBOutlet weak var titleTextField: UITextField!

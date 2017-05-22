@@ -6,24 +6,18 @@
 //  Copyright © 2017 Barry McAndrews. All rights reserved.
 //
 
+import AuroraCore
 import WatchKit
 import Foundation
 // import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
-    //let session = WCSession.default()
     
     @IBOutlet var tableView: WKInterfaceTable!
     let requests = RequestContainer.shared.requests
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        // session.delegate = self
-        // session.activate()
-        
-        Request.hostname = "hyperion"
-        Request.port = "5000"
         loadTableData()
     }
     

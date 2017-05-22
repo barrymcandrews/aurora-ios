@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 
 class SequenceDetailView: UIView, DetailView, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var detailsLabel: UILabel!

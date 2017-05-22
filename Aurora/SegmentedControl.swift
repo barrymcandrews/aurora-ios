@@ -141,11 +141,11 @@ import Hero
     }
     
     func displayNewSelectedIndex(){
-        for (index, item) in labels.enumerated() {
+        for (_, item) in labels.enumerated() {
             item.textColor = unselectedLabelColor
         }
         
-        var label = labels[selectedIndex]
+        let label = labels[selectedIndex]
         label.textColor = selectedLabelColor
         
         self.isUserInteractionEnabled = false

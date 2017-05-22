@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 import DZNEmptyDataSet
 
 class SequencePageViewController: UIViewController, RequestMaker, UICollectionViewDelegate, DragAndDropCollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {

@@ -9,12 +9,12 @@
 import UIKit
 import WatchConnectivity
 
-class RequestContainer: NSObject {
-    static let shared = RequestContainer()
+public class RequestContainer: NSObject {
+    public static let shared = RequestContainer()
     static let ApplicationSupportDirectory = FileManager().urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
     static let ArchiveURL = ApplicationSupportDirectory.appendingPathComponent("requests.dat")
     
-    var requests: [Request] = [
+    public var requests: [Request] = [
         ColorRequest(name:"Off", color: UIColor.black),
         ServiceRequest(name: "Spotify", service: ServiceType.LightShowService),
         ColorRequest(name: "Blue", color: UIColor.blue),
@@ -240,15 +240,15 @@ class RequestContainer: NSObject {
             ]
             ])
         ] {
-        
         didSet {
-            
+            #if os(iOS)
+            WatchSessionManager.shared.updateApplicationContext()
+            #endif
         }
     }
     
     
-    
-    static func convertToDictionary(text: String) -> [String: Any]? {
+    public static func convertToDictionary(text: String) -> [String: Any]? {
         if let data = text.data(using: .utf8) {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
@@ -259,7 +259,7 @@ class RequestContainer: NSObject {
         return nil
     }
     
-    static func saveRequests() -> Bool {
+    public static func saveRequests() -> Bool {
         do {
             try FileManager.default.createDirectory(atPath: ApplicationSupportDirectory.path, withIntermediateDirectories: false, attributes: nil)
         } catch let error as NSError {
@@ -269,7 +269,7 @@ class RequestContainer: NSObject {
         return NSKeyedArchiver.archiveRootObject(shared.requests, toFile: ArchiveURL.path)
     }
     
-    static func loadRequests() -> Bool {
+    public static func loadRequests() -> Bool {
         if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL.path) as? [Request] {
             shared.requests = loaded
             return true

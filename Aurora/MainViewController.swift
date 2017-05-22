@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 import Chameleon
 import Hero
 
@@ -28,13 +29,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
     // MARK: - UICollectionViewDataSource
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

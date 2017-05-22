@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 import Charts
 import Hero
 

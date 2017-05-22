@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuroraCore
 
 protocol RequestMaker {
     var initialRequest: Request? { get set }
