@@ -11,13 +11,14 @@ import WatchKit
 import Foundation
 // import WatchConnectivity
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, RequestContainerDelegate {
     
     @IBOutlet var tableView: WKInterfaceTable!
-    let requests = RequestContainer.shared.requests
+    var rowNames: [String] = []
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        RequestContainer.shared.delegate = self
         loadTableData()
     }
     
@@ -32,31 +33,27 @@ class InterfaceController: WKInterfaceController {
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+        let requests = RequestContainer.shared.requests
         requests[rowIndex].send(callback: {(error) -> Void in
             
         })
     }
 
     func loadTableData() {
+        let requests = RequestContainer.shared.requests
         tableView.setNumberOfRows(requests.count, withRowType: "TableRow")
-        // let firstRow = tableView.rowController(at: 0) as! TableRow
-        // firstRow.imageView.setImage(UIImage())
-        // firstRow.label.setText("Custom")
-        
         for (index, request) in requests.enumerated() {
             let row = tableView.rowController(at: index) as! TableRow
-            row.imageView.setImage(UIImage(named: request.image.rawValue))
-            row.label.setText(request.name)
+            if (rowNames[index] != request.name) {
+                row.imageView.setImage(UIImage(named: request.image.rawValue))
+                row.label.setText(request.name)
+                rowNames[index] = request.name
+            }
         }
     }
-    
-//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-//        
-//    }
-//    
-//    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-//        DispatchQueue.main.async() {
-//            
-//        }
-   // }
+ 
+    func requestsChanged() {
+        loadTableData()
+        //TODO: Reduce image flickering by only loading new rows
+    }
 }

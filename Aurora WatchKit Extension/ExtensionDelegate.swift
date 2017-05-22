@@ -19,6 +19,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         
         Request.hostname = UserDefaults.standard.string(forKey: "lastHostname") ?? "localhost"
         Request.port = UserDefaults.standard.string(forKey: "lastPort") ?? "5000"
+        print("Loaded?: \(RequestContainer.loadRequests())")
         WatchSessionManager.shared.startSession()
     }
 
@@ -29,6 +30,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     func applicationWillResignActive() {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
+        print("Saved?: \(RequestContainer.saveRequests())")
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {

@@ -9,10 +9,15 @@
 import UIKit
 import WatchConnectivity
 
+public protocol RequestContainerDelegate {
+    func requestsChanged()
+}
+
 public class RequestContainer: NSObject {
     public static let shared = RequestContainer()
     static let ApplicationSupportDirectory = FileManager().urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
     static let ArchiveURL = ApplicationSupportDirectory.appendingPathComponent("requests.dat")
+    public var delegate: RequestContainerDelegate?
     
     public var requests: [Request] = [
         ColorRequest(name:"Off", color: UIColor.black),
@@ -244,6 +249,7 @@ public class RequestContainer: NSObject {
             #if os(iOS)
             WatchSessionManager.shared.updateApplicationContext()
             #endif
+            delegate?.requestsChanged()
         }
     }
     
