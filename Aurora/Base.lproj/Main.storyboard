@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -32,7 +33,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iW8-4Q-kfu">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="50" height="70"/>
-                                    <size key="footerReferenceSize" width="50" height="128"/>
+                                    <size key="footerReferenceSize" width="50" height="256"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -98,23 +99,45 @@
                                     </constraints>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mainFooter" id="OEz-UJ-bnU">
-                                    <rect key="frame" x="0.0" y="170" width="375" height="128"/>
+                                    <rect key="frame" x="0.0" y="170" width="375" height="256"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="As you add more patterns they appear here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr8-37-gw3">
-                                            <rect key="frame" x="77.5" y="34.5" width="220" height="60"/>
+                                            <rect key="frame" x="57.5" y="8" width="260" height="170"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="220" id="FQZ-qW-NQ8"/>
-                                                <constraint firstAttribute="height" constant="60" id="t0M-sL-9AT"/>
+                                                <constraint firstAttribute="width" constant="260" id="FQZ-qW-NQ8"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="15"/>
                                             <color key="textColor" red="0.68888300660000001" green="0.71366006140000005" blue="0.73448425530000006" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gvw-rU-1KR">
+                                            <rect key="frame" x="42" y="178" width="290" height="55"/>
+                                            <color key="backgroundColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="290" id="4HH-QQ-sYt"/>
+                                                <constraint firstAttribute="height" constant="55" id="xpJ-BM-CeY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                            <state key="normal" title="Log Out">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="KgW-yr-PaV" kind="unwind" unwindAction="unwindToLoginWithSegue:" id="cZT-hU-d2r"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="hr8-37-gw3" firstAttribute="centerX" secondItem="OEz-UJ-bnU" secondAttribute="centerX" id="InD-3A-bxl"/>
-                                        <constraint firstItem="hr8-37-gw3" firstAttribute="centerY" secondItem="OEz-UJ-bnU" secondAttribute="centerY" id="lC0-tu-Als"/>
+                                        <constraint firstItem="hr8-37-gw3" firstAttribute="top" secondItem="OEz-UJ-bnU" secondAttribute="topMargin" id="PGT-s8-xZP"/>
+                                        <constraint firstItem="Gvw-rU-1KR" firstAttribute="centerX" secondItem="OEz-UJ-bnU" secondAttribute="centerX" id="Uid-mR-4x2"/>
+                                        <constraint firstItem="Gvw-rU-1KR" firstAttribute="top" secondItem="hr8-37-gw3" secondAttribute="bottom" id="YMH-Cw-8xC"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Gvw-rU-1KR" secondAttribute="bottom" constant="15" id="jqe-MV-wqv"/>
                                     </constraints>
                                 </collectionReusableView>
                                 <connections>
@@ -174,6 +197,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="KgW-yr-PaV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="920.79999999999995" y="715.59220389805103"/>
         </scene>

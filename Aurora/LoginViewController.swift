@@ -78,6 +78,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+        self.subtitleLabel.text = "Enter the server information below."
+    }
+    
+    
     // MARK: - Text Field Keyboard
     
     func keyboardWillShow(_ notification: Notification) {
