@@ -14,8 +14,7 @@ import Foundation
 class InterfaceController: WKInterfaceController, RequestContainerDelegate {
     
     @IBOutlet var tableView: WKInterfaceTable!
-    var rowNames: [String] = []
-    
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         RequestContainer.shared.delegate = self
@@ -44,11 +43,8 @@ class InterfaceController: WKInterfaceController, RequestContainerDelegate {
         tableView.setNumberOfRows(requests.count, withRowType: "TableRow")
         for (index, request) in requests.enumerated() {
             let row = tableView.rowController(at: index) as! TableRow
-            if (rowNames[index] != request.name) {
-                row.imageView.setImage(UIImage(named: request.image.rawValue))
-                row.label.setText(request.name)
-                rowNames[index] = request.name
-            }
+            row.imageView.setImage(UIImage(named: request.image.rawValue))
+            row.label.setText(request.name)
         }
     }
  
