@@ -23,7 +23,7 @@ $ git clone https://github.com/barrymcandrews/aurora-ios.git
 #SSH
 $ git clone git@github.com:barrymcandrews/aurora-ios.git
 ```
-####Dependencies
+#### Dependencies
 
 Before building the project you must download all dependencies with Carthage. In your terminal, navigate to the root of the project directory and run the following command:
 
