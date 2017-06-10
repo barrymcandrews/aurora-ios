@@ -1,4 +1,4 @@
-# Aurora iOS App
+# Aurora iOS App [![Build Status](https://travis-ci.org/barrymcandrews/aurora-ios.svg?branch=master)](https://travis-ci.org/barrymcandrews/aurora-ios)
 
 This app connects to an Aurora Server instance ([see this project](https://github.com/barrymcandrews/aurora-server)) to control the color or pattern of an RGB LED strip. You can choose from a pool of existing colors and patterns or use the editor to make your own.
 
