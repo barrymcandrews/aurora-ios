@@ -72,7 +72,7 @@ class PatternDetailViewController: ModalViewController {
                 
                 //TODO: Make this an innate part of the ServiceRequest
                 if (self.request is ServiceRequest && self.request.name == "Spotify") {
-                    UIApplication.shared.open(URL(string: "http://" + Request.hostname + ":8080/mopify")!)
+                    UIApplication.shared.open(URL(string: "http://" + Request.hostname + ":8080/iris")!)
                 }
             }
             self.sendButton.isEnabled = true

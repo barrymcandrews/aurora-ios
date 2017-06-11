@@ -7,13 +7,14 @@
 //
 
 import XCTest
+import AuroraCore
 @testable import Aurora
 
 class AuroraTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        Request.endpoint = "http://hyperion:5000"
+       
     }
     
     override func tearDown() {
@@ -32,11 +33,6 @@ class AuroraTests: XCTestCase {
         waitForExpectations(timeout: 500, handler: nil)
     }
     
-    func testSequenceParsing() {
-        
-        let req = RequestContainer.sharedInstance.requests[10] as? SequenceRequest
-        print(req!.body)
-    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
